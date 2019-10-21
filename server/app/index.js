@@ -53,5 +53,27 @@ app.get('/users', passport.authenticate('jwt', {session: false}), async (req, re
     })
 })
 
+app.delete('/user', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+    res.json({
+        user: await db.UserModel.deleteUser(req.query.id)
+    })
+})
+app.put('/user', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+    res.json({
+        user: await db.UserModel.editUser(req.body)
+    })
+})
+app.post('/user', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+    res.json({
+        user: await db.UserModel.createUser(req.body)
+    })
+})
+
+app.get('/salary', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+    res.json({
+        users: await db.UserModel.getSortedSalary()
+    })
+})
+
 
 module.exports = app

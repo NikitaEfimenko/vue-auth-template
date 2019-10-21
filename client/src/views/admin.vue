@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-card>
     <v-card-title>
-      Admin panel
+      <span>Admin panel</span>
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -27,7 +27,7 @@
         NO DATA HERE!
     </template>
   </v-data-table>
-   </v-card>
+  </v-card>
   </v-layout>
 </template>
 
@@ -51,6 +51,11 @@ export default {
          align: 'center'
        }
      ]
+   }
+ },
+ watch: {
+   dialog(val) {
+     val || this.close()
    }
  },
  computed: {

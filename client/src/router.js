@@ -22,6 +22,15 @@ const router = new Router({
 			},
 		},
 		{
+			path: ROUTES.dashboard,
+			name: ROUTES.dashboard,
+			meta: PERMISSIONS.admin,
+			components: {
+				default: () => import(/* webpackChunkName: "all" */"./views/dashboard.vue"),
+				navigation: Navigation
+			},
+		},
+		{
 			path: ROUTES.denied,
 			name: ROUTES.denied,
 			components: {

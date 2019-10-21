@@ -6,7 +6,8 @@ export const ROUTES = {
 	admin: '/admin',
 	denied: '/access-denied',
 	notFound: '/not-found',
-	profile: '/profile' 
+	profile: '/profile',
+	dashboard: '/dashboard'
 }
 
 export const PERMISSIONS = {

@@ -3,8 +3,6 @@ import router from '../router'
 import store from '../store'
 import { ROUTES } from '../constants'
 
-console.log(store)
-
 export const req = axios.create({
     validateStatus: status => {
         switch(status) {
@@ -44,14 +42,23 @@ export  const restoreSession = () => {
     return req.get('/restore', {...token()})
 }
 
-export const profile = () => req.get('/profile', {
+export const fetchUsersAPI = () => req.get('/users', {
     ...token()
 })
 
-export const fetchUsers = () => req.get('/users', {
+export const fetchDepartamentsAPI = () => req.get('/departaments', {
     ...token()
 })
 
-export const fetchDepartaments = () => req.get('/departaments', {
+export const createUserAPI = (user) => req.post('/user', user, {
+    ...token()
+})
+export const deleteUserAPI = (user) => req.delete('/user', {
+    params: {
+        id: user.id
+    },
+    ...token()
+})
+export const editUserAPI = (user) => req.put('/user', user, {
     ...token()
 })
